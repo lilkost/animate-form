@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+:root {
+    --font-family: 'Open Sans', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #25252b;
+}
+
+.box {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+.box form {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #25252b;
+    color: white;
+    border-radius: 20px;
+    z-index: 100;
+    height: 395px;
+    width: 395px;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #45f3ff 0%, #45f3ff 5%, transparent 5%, transparent 35%, #45f3ff 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 20px;
+    animation-delay: -1s;
+}
+
+
+@keyframes animate {
+    0% {
+        --a: 0deg;
+    }
+
+    100% {
+        --a: 360deg
+    }
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* inset: 8px;
+    background-color: #2d2d39;
+    border-radius: 15px;
+    border: 9px solid #25252b; */
+    background: repeating-conic-gradient(from var(--a), #ff2770 0%, #ff2770 5%, transparent 5%, transparent 35%, #ff2770 50%);
+
+    animation: animate 4s linear infinite;
+    border-radius: 20px;
+}
+
+/* .box form {
+    color: #fff;
+} */
+
+.box form input {
+    width: calc(100% - 50px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    outline: none;
+    padding-block: 10px;
+    padding-inline: 15px;
+    color: white;
+    border-radius: 3px;
+}
+
+.box form input::placeholder {
+    color: rgba(255, 255, 255, .5);
+}
+
+.box form input[type="submit"] {
+    font-weight: 600;
+    background: #2d2d39;
+    color: #fff;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.box form input[type="submit"]:hover {
+    background-color: #ff2770;
+}
+
+.group {
+    width: calc(100% - 50px);
+    display: flex;
+    justify-content: space-between;
+}
+
+.group a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.group a:hover {
+    color: rgba(255, 255, 255, .5);
+}
